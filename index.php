@@ -1,15 +1,5 @@
 <?php
 
-//$kites = [
-//    'gin' => ['size'=>8,'lines'=>4 ],
-//    'Gaastra' => ['size'=>12,'lines'=>5],
-//    'Naish' => ['size'=>10,'lines'=>8]
-//];
-//foreach ($kites as $kite => $info){
-//    $lines = $info['lines'];
-//    $size = $info['size'];
-//    echo "$kite has lines:$lines size:$size<br>";
-//}
 
 $people = [
     //firstname
@@ -50,7 +40,7 @@ $people = [
         ],
         'FavColors' => [
             'Aquamarine',
-            'Beaver' //de kleur
+            'Beaver' //de kleur niet het dier
         ],
         'Hobbies'   => [
             'Gamen',
@@ -61,21 +51,21 @@ $people = [
     ]
 ];
 
-//: void, want anders was er een irritante warning
+//: void, to prevent weird error message in phpstorm
 function displayComplexArray($array, $indent = 0): void
 {
     foreach ($array as $key => $value) {
-        //zorgt voor extra enter tussen basis entries
+        //extra break, because why not
         if($indent == 0) {echo"<br>";}
-        // Add indentation
+        //indentation for display
         echo str_repeat("&nbsp; &nbsp;", $indent);
 
         if (is_array($value)) {
-            // If the value is an array, recursion :P
+            // if the value is an array, recursion :P
             echo "$key:<br>";
             displayComplexArray($value, $indent + 1);
         } else {
-            // If it's not an array, display as normal
+            // if it's not an array, display as normal
             echo "$key: $value<br>";
         }
     }
@@ -83,11 +73,11 @@ function displayComplexArray($array, $indent = 0): void
 
 
 echo"<br><br>";
-//call functie die alle data op scherm gooit
+//call function to display array
 displayComplexArray($people);
 
-//l is weekdag, jS is _th dag van maand, \ voor of omdat o geescaped moet worden
-//F is voledig uitgeschreven maand, Y is jaar in xxxx
+//l is weekday, jS is _th day of month, \ to escape o in of
+//F is month long, Y is year in xxxx
 echo"<br><br>Today is: " . date("l jS \of F Y");
 
 
